@@ -12,11 +12,24 @@ document. addEventListener('DOMContentLoaded',() => {
    function showRandomQuote() {
      const randomIndex = Math.floor(Math.random() * quotes.length);
      const randomQuote = quotes[randomIndex];
-    quoteDisplay.textContent = quotes[randomIndex].text;
+    quoteDisplay.innerHTML = quotes[randomIndex].text;
    }
 
  newQuoteBtn.addEventListener('click', showRandomQuote);
  showRandomQuote();
+
+ function addQuote() {
+  const quoteText = document.getElementById('newQuoteText').value;
+  const quoteCategory = document.getElementById('newQuoteCategory').value;
+
+  quotes.push({
+    text: quoteText,
+    category: quoteCategory
+  });
+
+  showRandomQuote();
+}
+
 
  function createAddQuoteForm(){
   const form = document.createElement('form');
