@@ -2,6 +2,17 @@ document. addEventListener('DOMContentLoaded',() => {
     const quoteDisplay = document.getElementById('quoteDisplay');
     const newQuoteBtn = document.getElementById('newQuote');
  
+    let quotes = JSON.parse(localStorage.getItem('quotes')) || [
+    {
+      text: "Sometimes we fail only to come back stronger. Remember failing is a mistake but staying down is an option",
+      category: "Motivation"
+    }
+  ];
+
+  function saveQuotes() {
+    localStorage.setItem('quotes', JSON.stringify(quotes));
+  }
+  
  const quotes = [
        {
        text:"Sometimes we fail only to come back stronger.Remember failing is a mistake but staying down is an option." 
