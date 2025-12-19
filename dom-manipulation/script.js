@@ -182,7 +182,7 @@ function getLocalQuotes() {
 function saveLocalQuotes(quotes) {
   localStorage.setItem('quotes', JSON.stringify(quotes));
 }
-function showNotification(message) {
+function showNotification(Quotes synced with server) {
   const note = document.getElementById('notification');
   note.textContent = message;
   note.style.background = '#e6fffa';
