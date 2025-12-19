@@ -157,5 +157,35 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('change', filterQuotes);
 });
 
+const SERVER_URL = 'https://jsonplaceholder.typicode.com/posts';
+async function fetchServerQuotes() {
+  const response = await fetch(SERVER_URL);
+  const data = await response.json();
+
+  // Convert server posts into quote format
+  return data.slice(0, 5).map(post => ({
+    text: post.title,
+    category: 'Server'
+  }));
+}
+setInterval(syncWithServer, 10000); // every 10 seconds
+function getLocalQuotes() {
+  return JSON.parse(localStorage.getItem('quotes')) || [];
+}
+
+function saveLocalQuotes(quotes) {
+  localStorage.setItem('quotes', JSON.stringify(quotes));
+}
+function showNotification(message) {
+  const note = document.getElementById('notification');
+  note.textContent = message;
+  note.style.background = '#e6fffa';
+  note.style.padding = '10px';
+
+  setTimeout(() => {
+    note.textContent = '';
+  }, 3000);
+}
+document.getElementById('syncNow').addEventListener('click', syncWithServer);
 
 });
