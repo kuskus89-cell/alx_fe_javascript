@@ -182,7 +182,7 @@ function getLocalQuotes() {
 function saveLocalQuotes(quotes) {
   localStorage.setItem('quotes', JSON.stringify(quotes));
 }
-function showNotification(Quotes synced with server) {
+function showNotification(message) {
   const note = document.getElementById('notification');
   note.textContent = message;
   note.style.background = '#e6fffa';
@@ -193,6 +193,6 @@ function showNotification(Quotes synced with server) {
   }, 3000);
 }
 syncQuotes();
-document.getElementById('syncNow').addEventListener('click', syncWithServer);
+document.getElementById('syncNow').addEventListener('click', QuotessyncedWithServer);
 
 });
