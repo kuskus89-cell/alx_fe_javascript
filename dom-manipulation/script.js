@@ -192,6 +192,7 @@ function showNotification(message) {
     note.textContent = '';
   }, 3000);
 }
+syncQuotes();
 document.getElementById('syncNow').addEventListener('click', syncWithServer);
 
 });
