@@ -103,6 +103,12 @@ document.getElementById('importQuotes').addEventListener('change', (event) => {
     fileReader.readAsText(event.target.files[0]);
   }
 
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(quotes)
+});
+
 function populateCategories() {
   const categorySelect = document.getElementById('categoryFilter');
 
