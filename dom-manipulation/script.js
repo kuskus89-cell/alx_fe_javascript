@@ -196,7 +196,7 @@ syncQuotes();
 document.getElementById('syncNow').addEventListener('click', QuotessyncedWithServer);
 
 const node = document.createElement("li");
-const textnode = document.createTextNode("Quotes synced successfully! ");
+const textnode = document.createTextNode("Quotes synced with server! ");
 node.appendChild(textnode);
 document.getElementById("quotes").appendChild(node);
 
